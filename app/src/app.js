@@ -2,17 +2,16 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
-  StyleSheet,
-  Platform,
   TextInput,
   ListView,
   Keyboard,
   AsyncStorage,
   ActivityIndicator
 } from 'react-native';
-import Footer from './footer';
-import Header from './header';
-import Row from './row';
+import styles from './app.styles';
+import Footer from './components/footer';
+import Header from './components/header';
+import Row from './components/row';
 
 function filterItems(items, filter) {
   if (filter === 'ALL') return items;
@@ -144,37 +143,5 @@ class App extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#f5f5f5",
-    ...Platform.select({
-      ios: {
-        paddingTop: 30,
-      }
-    })
-  },
-  loading: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: 0,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, .2)'
-  },
-  content: {
-    flex: 1,
-  },
-  list: {
-    backgroundColor: '#FFF',
-  },
-  separator: {
-    borderWidth: 1,
-    borderColor: '#F5F5F5'
-  }
-});
 
 export default App;
