@@ -1,0 +1,12 @@
+export const CHANGE_TODO = 'ACTION_CHANGE_TODO';
+export const ADD_TODO = 'ACTION_ADD_TODO';
+export const TOGGLE_TODO = 'ACTION_TOGGLE_TODO';
+export const REMOVE_TODO = 'ACTION_REMOVE_TODO';
+export const TOGGLE_ALL = 'ACTION_TOGGLE_ALL';
+export const FILTER_TODOS = 'ACTION_FILTER_TODOS';
+export const TOGGLE_LOADING = 'ACTION_TOGGLE_LOADING';
+export const FILTERS = {
+  ALL: 'ALL',
+  ACTIVE: 'ACTIVE',
+  COMPLETE: 'COMPLETE',
+};
