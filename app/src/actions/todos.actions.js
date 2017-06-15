@@ -5,7 +5,13 @@ import {
   REMOVE_TODO,
   TOGGLE_ALL,
   FILTER_TODOS,
+  INIT_TODOS,
 } from '../constants';
+
+export const initTodos = (todos) => ({
+  type: INIT_TODOS,
+  payload: todos,
+});
 
 export const addTodo = () => {
   return (dispatch, getState) => {

@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { ListView } from 'react-native';
 import List from './list.component';
+import todosSelector from './selectors';
 import { FILTERS } from '../../constants';
 import { changeTodo } from '../../actions/todo.actions';
 import { addTodo, removeTodo, toggleTodo } from '../../actions/todos.actions';
@@ -17,7 +18,7 @@ const filterItems = (items=[], filter=FILTERS.ALL) => {
 
 const mapStateToProps = (state) => ({
   todo: state.todo,
-  todos: ds.cloneWithRows(filterItems(state.todos || [], state.filter) || []),
+  todos: ds.cloneWithRows(filterItems(todosSelector(state), state.filter) || []),
   nTodosActive: filterItems(state.todos || [], FILTERS.ACTIVE).length,
   filter: state.filter,
   loading: state.loading,
