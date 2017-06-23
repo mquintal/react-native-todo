@@ -6,22 +6,26 @@ import {
 import { setTodos } from '../lib/db';
 
 const reducer = (state=[], action={}) => {
+  let newState = state;
+
   switch (action.type) {
     case INIT_TODOS:
       return action.payload;
       break;
     case ADD_TODO:
-      return [...state, {
+      newState = [...state, {
         key: Date.now(),
         text: action.payload,
       }];
+      setTodos(newState);
       break;
     case REMOVE_TODO:
-      return state.filter((item) => item.key !== action.payload);
+      newState = state.filter((item) => item.key !== action.payload);
+      setTodos(newState);
       break;
     default:
   }
-  return state;
+  return newState;
 };
 
 export default reducer;

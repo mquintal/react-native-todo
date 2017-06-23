@@ -6,6 +6,7 @@ export const TOGGLE_ALL = 'ACTION_TOGGLE_ALL';
 export const FILTER_TODOS = 'ACTION_FILTER_TODOS';
 export const TOGGLE_LOADING = 'ACTION_TOGGLE_LOADING';
 export const INIT_TODOS = 'ACTION_INIT_TODOS';
+export const TOGGLE_INIT = 'ACTION_TOGGLE_INIT';
 export const FILTERS = {
   ALL: 'ALL',
   ACTIVE: 'ACTIVE',

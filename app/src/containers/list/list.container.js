@@ -4,7 +4,8 @@ import List from './list.component';
 import todosSelector from './selectors';
 import { FILTERS } from '../../constants';
 import { changeTodo } from '../../actions/todo.actions';
-import { addTodo, removeTodo, toggleTodo } from '../../actions/todos.actions';
+import { addTodo, removeTodo } from '../../actions/todos.actions';
+import { toggleTodo } from '../../actions/toggle.actions';
 import { changeFilter } from '../../actions/filter.actions';
 import { toggleAll } from '../../actions/toggleall.actions';
 

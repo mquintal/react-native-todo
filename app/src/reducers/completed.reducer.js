@@ -1,18 +1,26 @@
-import { TOGGLE_TODO, TOGGLE_ALL } from '../constants';
+import { TOGGLE_TODO, TOGGLE_ALL, TOGGLE_INIT } from '../constants';
+import { setCompleted } from '../lib/db';
 
 const reducer = (state = [], action = {}) => {
-  if (action.type === TOGGLE_TODO) {
+  let newState = state;
+
+  if(action.type === TOGGLE_INIT) {
+    return action.payload;
+  } else if (action.type === TOGGLE_TODO) {
     const { key } = action.payload;
     const position = state.indexOf(key);
 
-    if( position === -1 ) {
-      return [...state, key];
+    if (position === -1) {
+      newState = [...newState, key];
+    } else {
+      newState.splice(position, 1);
     }
-    state.splice(position, 1);
-  } else if (action.type === TOGGLE_ALL){
-    return action.payload.state ? action.payload.keys : [];
+    setCompleted(newState);
+  } else if (action.type === TOGGLE_ALL) {
+    newState = action.payload.state ? action.payload.keys : [];
+    setCompleted(newState);
   }
-  return state;
+  return newState;
 }
 
 export default reducer;
