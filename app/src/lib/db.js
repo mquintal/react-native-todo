@@ -1,21 +1,17 @@
 import { get, set } from './storage';
 
-export const setToggleAll = (state) => {
-  const db = get();
-
-  set({...db, toggleAll: state });
+export const setTodos = (todos) => {
+  get().then((data) => set({...data, todos }));
 }
 
-export const setTodos = (todos) => {
-  const db = get();
-
-  set({...db, todos });
+export const setCompleted = (completed) => {
+  get().then((data) => set({...data, completed }));
 }
 
 export const setFilter = (filter) => {
-  const db = get();
-
-  set({...db, filter });
+  get().then((data) => {
+    set({...data, filter });
+  });
 }
 
 export const getDB = () => {
